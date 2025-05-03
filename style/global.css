@@ -1,0 +1,44 @@
+/* Tùy chỉnh thanh cuộn */
+::-webkit-scrollbar {
+    width: 8px; /* Chiều rộng của thanh cuộn */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #2e2d2d; /* Màu của thanh cuộn */
+    border-radius: 10px; /* Bo tròn góc của thanh cuộn */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Thêm bóng cho thanh cuộn */
+}
+
+/* Tùy chỉnh track (nền của thanh cuộn) */
+::-webkit-scrollbar-track {
+    background-color: #e0e0e0; /* Màu nền của thanh cuộn */
+    border-radius: 10px; /* Bo tròn góc của track */
+}
+
+.dot {
+    animation: bounce 1.2s infinite ease-in-out;
+}
+
+.dot-1 {
+    animation-delay: 0s;
+}
+.dot-2 {
+    animation-delay: 0.2s;
+}
+.dot-3 {
+    animation-delay: 0.5s;
+}
+
+.animation-loading {
+    display: flex;
+}
+
+@keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-7px); 
+    }
+}
+

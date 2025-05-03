@@ -1,0 +1,41 @@
+{
+    "data": [
+        {
+            "id": 6713121220476971233,
+            "percent": 0.4900504946708679,
+            "data": {
+                "name": "Tết cổ truyền trong Hoàng cung và ngoại thành Huế xưa",
+                "link": "https://dantri.com.vn/tet-2025/tet-co-truyen-trong-hoang-cung-va-ngoai-thanh-hue-xua-20250125155126526.htm",
+                "content": "Do đặc trưng của vùng đất kinh kỳ, người Huế chuẩn bị tết cổ truyền có vài điểm khác biệt so với cả nước, nhất là các tỉnh phía Bắc."
+            }
+        },
+        {
+            "id": 5182564294933313385,
+            "percent": 0.4348176419734955,
+            "data": {
+                "name": "Lãnh đạo cộng đồng Pháp ngữ ấn tượng về Huế, hình mẫu trong bảo tồn di sản",
+                "link": "https://dantri.com.vn/doi-song/lanh-dao-cong-dong-phap-ngu-an-tuong-ve-hue-hinh-mau-trong-bao-ton-di-san-20250429185518030.htm",
+                "content": "Lãnh đạo các thành phố nói tiếng Pháp trên toàn thế giới quy tụ tại thành phố Huế để bàn thảo, đưa ra các giải pháp về bảo tồn di sản và phát triển bền vững."
+            }
+        },
+        {
+            "id": 2112940246971311138,
+            "percent": 0.4246235191822052,
+            "data": {
+                "name": "Chiêm ngưỡng bộ sưu tập gốm cổ quý hiếm tại Đại nội Huế",
+                "link": "https://dantri.com.vn/doi-song/chiem-nguong-bo-suu-tap-gom-co-quy-hiem-tai-dai-noi-hue-20250426194305914.htm",
+                "content": "Gần 200 cổ vật gốm sứ đặc sắc được lựa chọn để giới thiệu đến công chúng và du khách tại không gian điện Kiến Trung, bên trong Đại nội Huế."
+            }
+        },
+        {
+            "id": 1766349593382653968,
+            "percent": 0.4047616422176361,
+            "data": {
+                "name": "Hé lộ bối cảnh hoành tráng của phim trường \"Mưa đỏ\" ở Quảng Trị",
+                "link": "https://dantri.com.vn/giai-tri/he-lo-boi-canh-hoanh-trang-cua-phim-truong-mua-do-o-quang-tri-20250204234024074.htm",
+                "content": "Để có những cảnh quay chân thực của phim \"Mưa đỏ\", Điện ảnh Quân đội nhân dân đã dựng cả phim trường Thành cổ Quảng Trị với những bối cảnh hoàng tráng, công phu."
+            }
+        }
+    ],
+    "prompt": "Chào bạn, hôm nay ngày 2025-05-03, tôi sẽ gợi ý một vài tin tức nổi bật nhé:\n\n*   **Văn hóa Huế:** Tết cổ truyền ở Huế có nhiều nét đặc trưng so với các vùng miền khác, đặc biệt là ở khu vực kinh thành.\n*   **Bảo tồn di sản:** Lãnh đạo cộng đồng Pháp ngữ đánh giá cao Huế trong việc bảo tồn di sản và phát triển bền vững.\n*   **Cổ vật:** Chiêm ngưỡng bộ sưu tập gốm cổ quý hiếm tại Đại Nội Huế, trưng bày tại điện Kiến Trung.\n*   **Điện ảnh:** Phim trường \"Mưa đỏ\" tái hiện chân thực Thành cổ Quảng Trị với bối cảnh hoành tráng."
+}
