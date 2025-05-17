@@ -9,7 +9,7 @@ import data from '@/mock-data.json'
 import store from "@/store"
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';  // Đảm bảo đã import styles
-import { flightRouterStateSchema } from "next/dist/server/app-render/types"
+import { userActionApi } from "@/api/api"
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -80,6 +80,12 @@ export default function foo({table}) {
         foo()
     }, [loading])
 
+    const handleClickAction = async(name, type) => {
+        const res = await userActionApi(name, type)
+        console.log(res)
+        
+    }
+
     useEffect(() => {
         setLoading(true)
         setConv(p => [])
@@ -125,8 +131,8 @@ export default function foo({table}) {
                                 });
                             return (
                                 <BotConversation key = {index}>
-                                    <div style={bot}>
-                                        <div>
+                                    <div style={{...bot, backgroundColor: '#1a1a1a', padding: '20px', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.3)'}}>
+                                        <div style={{color: '#e0e0e0', fontSize: '16px', lineHeight: '1.6'}}>
                                             {formattedText}
                                         </div>
                                     </div>
@@ -135,16 +141,89 @@ export default function foo({table}) {
                                             item.content.data.map((val) => {
                                                 return ( 
                                                     <React.Fragment key={val.id}>
-                                                        <div style={{display: 'flex', alignItems: "center", gap: 15}}>
-                                                            <div style={{ display: 'flex', width: 50, height: 50, marginTop: 15 }}>
-                                                                <CircularProgressbar width={50} value={val.percent} text={`${val.percent}%`} />
+                                                        <div style={{display: 'flex', alignItems: "center", gap: 15, backgroundColor: '#2d2d2d', padding: '12px', borderRadius: '8px', marginBottom: '10px', boxShadow: '0 2px 4px rgba(0,0,0,0.2)'}}>
+                                                            <div style={{ display: 'flex', width: 50, height: 50}}>
+                                                                <CircularProgressbar 
+                                                                    width={50} 
+                                                                    value={val.percent} 
+                                                                    text={`${val.percent}%`}
+                                                                    styles={{
+                                                                        path: {stroke: '#6c5ce7'},
+                                                                        trail: {stroke: '#404040'},
+                                                                        text: {fill: '#e0e0e0', fontSize: '24px'}
+                                                                    }}
+                                                                />
                                                             </div>
-                                                            <a target="_blank" style={{textDecoration: 'none'}} href={val.data.link}>{val.data.name}</a>
+                                                            <a 
+                                                                onClick={() => handleClickAction(val.data.name, val.data.type)} 
+                                                                target="_blank" 
+                                                                style={{
+                                                                    textDecoration: 'none',
+                                                                    color: '#a29bfe',
+                                                                    fontSize: '15px',
+                                                                    fontWeight: 500,
+                                                                    ':hover': {color: '#6c5ce7'}
+                                                                }} 
+                                                                href={val.data.link}
+                                                            >
+                                                                {val.data.name}
+                                                            </a>
                                                         </div>
                                                     </React.Fragment>
                                                 )
                                             })
                                         }
+                                    </div>
+                                    <br />
+                                    <hr style={{margin: '20px 0', border: 'none', height: '1px', backgroundColor: '#404040'}}/>
+                                    <span style={{color: '#e0e0e0', fontSize: '16px', fontWeight: 600}}>Có thể bạn sẽ Thích:</span>
+                                    <div style={{marginTop: 25, display: 'flex', alignItems: 'center', gap: 10}}>
+                                        { item.content.suggest_news && item.content.suggest_news.length > 0 ? (
+                                            item.content.suggest_news.map((val) => {
+                                                return ( 
+                                                    <React.Fragment key={val.id}>
+                                                        <div style={{display: 'flex', alignItems: "center", gap: 15, backgroundColor: '#2d2d2d', padding: '12px', borderRadius: '8px', transition: 'all 0.3s ease'}}>
+                                                            <div style={{ display: 'flex', width: 50, height: 50}}>
+                                                                <CircularProgressbar 
+                                                                    width={50} 
+                                                                    value={val.percent} 
+                                                                    text={`${val.percent}%`}
+                                                                    styles={{
+                                                                        path: {stroke: '#fd79a8'},
+                                                                        trail: {stroke: '#404040'},
+                                                                        text: {fill: '#e0e0e0', fontSize: '24px'}
+                                                                    }}
+                                                                />
+                                                            </div>
+                                                            <a 
+                                                                onClick={() => handleClickAction(val.data.name, val.data.type)} 
+                                                                target="_blank" 
+                                                                style={{
+                                                                    textDecoration: 'none',
+                                                                    color: '#fd79a8',
+                                                                    fontSize: '15px',
+                                                                    fontWeight: 500,
+                                                                    ':hover': {color: '#e84393'}
+                                                                }} 
+                                                                href={val.data.link}
+                                                            >
+                                                                {val.data.name}
+                                                            </a>
+                                                        </div>
+                                                    </React.Fragment>
+                                                )
+                                            })
+                                        ) : (
+                                            <div style={{
+                                                color: '#e0e0e0',
+                                                fontSize: '15px',
+                                                padding: '12px',
+                                                backgroundColor: '#2d2d2d',
+                                                borderRadius: '8px'
+                                            }}>
+                                                Chưa đủ dữ liệu để thống kê
+                                            </div>
+                                        )}
                                     </div>
                                 </BotConversation>
                             )
